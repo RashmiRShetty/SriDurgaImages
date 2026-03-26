@@ -114,16 +114,20 @@ const AdminProductForm = () => {
     setLoading(true);
 
     try {
+      // Find category name for fallback
+      const categoryName = categories.find(c => c.id === selectedCategory)?.name || 'Unnamed Furniture';
+      const finalProductName = formData.name.trim() || categoryName;
+
       let product;
       if (isEditing) {
         // Update product data
         const { data, error: productError } = await supabase
           .from('products')
           .update({
-            name: formData.name,
-            price: parseFloat(formData.price),
+            name: finalProductName,
+            price: formData.price ? parseFloat(formData.price) : 0,
             discount_price: formData.discount_price ? parseFloat(formData.discount_price) : null,
-            description: formData.description,
+            description: formData.description || '',
             category_id: selectedCategory || null,
             subcategory_id: formData.subcategory_id || null
           })
@@ -153,10 +157,10 @@ const AdminProductForm = () => {
         const { data, error: productError } = await supabase
           .from('products')
           .insert([{
-            name: formData.name,
-            price: parseFloat(formData.price),
+            name: finalProductName,
+            price: formData.price ? parseFloat(formData.price) : 0,
             discount_price: formData.discount_price ? parseFloat(formData.discount_price) : null,
-            description: formData.description,
+            description: formData.description || '',
             category_id: selectedCategory || null,
             subcategory_id: formData.subcategory_id || null
           }])
@@ -228,15 +232,14 @@ const AdminProductForm = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Product Name */}
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-semibold text-gray-600 uppercase tracking-wider">Product Name *</label>
+            <label className="text-sm font-semibold text-gray-600 uppercase tracking-wider">Product Name</label>
             <input
               type="text"
               name="name"
-              required
               value={formData.name}
               onChange={handleInputChange}
               className="p-3 border rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-gray-50 border-transparent focus:bg-white transition-all"
-              placeholder="e.g. Modern Velvet Sofa"
+              placeholder="Optional (e.g. Modern Velvet Sofa)"
             />
           </div>
 
@@ -275,15 +278,14 @@ const AdminProductForm = () => {
 
           {/* Price */}
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-semibold text-gray-600 uppercase tracking-wider">Original Price (₹) *</label>
+            <label className="text-sm font-semibold text-gray-600 uppercase tracking-wider">Original Price (₹)</label>
             <input
               type="number"
               name="price"
-              required
               value={formData.price}
               onChange={handleInputChange}
               className="p-3 border rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-gray-50 border-transparent focus:bg-white transition-all"
-              placeholder="0.00"
+              placeholder="Optional"
             />
           </div>
 
@@ -303,15 +305,14 @@ const AdminProductForm = () => {
 
         {/* Description */}
         <div className="flex flex-col gap-1">
-          <label className="text-sm font-semibold text-gray-600 uppercase tracking-wider">Description *</label>
+          <label className="text-sm font-semibold text-gray-600 uppercase tracking-wider">Description</label>
           <textarea
             name="description"
-            required
             rows="4"
             value={formData.description}
             onChange={handleInputChange}
             className="p-3 border rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-gray-50 border-transparent focus:bg-white transition-all"
-            placeholder="Detailed text about furniture..."
+            placeholder="Optional detailed text..."
           ></textarea>
         </div>
 
