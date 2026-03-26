@@ -127,8 +127,7 @@ const ContactUs = () => {
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-[10px] font-black uppercase tracking-[0.3em] mb-6 border border-white/10">
               <Mail size={14} className="text-indigo-300" /> General Inquiries
             </div>
-            <h3 className="text-3xl font-black uppercase tracking-tighter mb-4">sridurgaelectronics21@gmail.com</h3>
-            <p className="text-indigo-200 font-medium">Feel free to drop us an email for any other assistance.</p>
+            <p className="text-indigo-200 font-medium">Feel free to talk with us.</p>
           </div>
         </div>
       </div>
