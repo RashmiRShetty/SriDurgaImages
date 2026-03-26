@@ -22,7 +22,7 @@ const AdminCategoryForm = () => {
       .from('categories')
       .select('*, subcategories(*)');
     if (error) console.error('Error fetching categories:', error);
-    else setCategories(data);
+    else setCategories(data || []);
     setLoading(false);
   };
 

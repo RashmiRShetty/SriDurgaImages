@@ -13,18 +13,25 @@ const isValidUrl = (url) => {
   }
 };
 
+const mockHandler = {
+  get: (target, prop) => {
+    // If it's a promise method, return a promise that resolves to an error
+    if (prop === 'then' || prop === 'catch' || prop === 'finally') {
+      return (onFulfilled) => Promise.resolve({ data: null, error: { message: 'Supabase URL not configured' } }).then(onFulfilled);
+    }
+    // If it's a chainable method, return a proxy that is both a function and an object
+    const fn = () => new Proxy({}, mockHandler);
+    return new Proxy(fn, mockHandler);
+  }
+};
+
 export const supabase = isValidUrl(supabaseUrl) 
   ? createClient(supabaseUrl, supabaseAnonKey)
-  : {
-      from: () => ({
-        select: () => ({ order: () => Promise.resolve({ data: [], error: { message: 'Supabase URL not configured' } }) }),
-        insert: () => Promise.resolve({ data: null, error: { message: 'Supabase URL not configured' } }),
-        eq: () => ({ single: () => Promise.resolve({ data: null, error: { message: 'Supabase URL not configured' } }) })
-      }),
-      storage: {
-        from: () => ({
-          upload: () => Promise.resolve({ data: null, error: { message: 'Supabase URL not configured' } }),
-          getPublicUrl: () => ({ data: { publicUrl: '' } })
-        })
+  : new Proxy({}, {
+      get: (target, prop) => {
+        if (prop === 'from' || prop === 'storage' || prop === 'auth') {
+          return () => new Proxy({}, mockHandler);
+        }
+        return undefined;
       }
-    };
+    });

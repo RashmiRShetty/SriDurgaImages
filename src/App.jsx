@@ -205,6 +205,17 @@ function App() {
                <Route path="/admin/edit/:productId" element={<AdminProductForm />} />
                <Route path="/admin/categories" element={<AdminCategoryForm />} />
              </Route>
+             
+             {/* Catch-all 404 Route */}
+             <Route path="*" element={
+               <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
+                 <h2 className="text-4xl font-black text-gray-900 mb-4 uppercase">404 - Page Not Found</h2>
+                 <p className="text-gray-500 mb-8 font-medium">The page you're looking for doesn't exist or has been moved.</p>
+                 <Link to="/" className="bg-indigo-600 text-white px-8 py-3 rounded-2xl font-black uppercase tracking-widest hover:bg-indigo-700 transition-all shadow-xl hover:shadow-indigo-100">
+                   Back to Home
+                 </Link>
+               </div>
+             } />
            </Routes>
         </main>
 
