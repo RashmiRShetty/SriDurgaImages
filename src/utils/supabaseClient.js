@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || ''
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || ''
+const supabaseUrl = 'https://iecenmieqjyzqwfkfgcc.supabase.co'
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImllY2VubWllcWp5enF3ZmtmZ2NjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ1Mjg1MjAsImV4cCI6MjA5MDEwNDUyMH0.H9-3I0z7Ji6sQ9aRBUCYx1KOSfcJNDY2zCFPk80GHLk'
 
 // Simple validation to prevent app crash on startup if .env is not yet configured
 const isValidUrl = (url) => {
