@@ -38,12 +38,15 @@ function Navigation() {
                 <LayoutGrid size={32} strokeWidth={2.5} />
               </div>
               <div className="flex flex-col">
-                <span className="text-3xl font-[1000] text-gray-900 tracking-tighter uppercase leading-none">
-                  SRI <span className="text-indigo-600">DURGA</span>
-                </span>
-                <span className="text-xl font-[1000] text-indigo-600 tracking-tight uppercase leading-none mt-1.5 whitespace-nowrap">
-                  Electronics & Furnitures
-                </span>
+                <div className="flex items-baseline leading-none">
+                  <span className="text-3xl font-[1000] text-gray-900 tracking-tighter uppercase">SRI</span>
+                  <span className="text-3xl font-[1000] text-indigo-600 tracking-tighter uppercase ml-1.5">DURGA</span>
+                </div>
+                <div className="mt-1.5">
+                  <span className="text-base font-black text-indigo-600 tracking-[0.05em] uppercase whitespace-nowrap leading-none">
+                    Electronics & Furnitures
+                  </span>
+                </div>
               </div>
             </Link>
 
