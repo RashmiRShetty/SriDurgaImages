@@ -3,16 +3,19 @@ import { Sparkles, CheckCircle2 } from 'lucide-react';
 import karImg from '../assets/kar.jpeg';
 import dvgImg from '../assets/dvg.jpeg';
 
+const shopImages = [karImg, dvgImg];
+
 const AboutUs = () => {
-  const shopImages = [karImg, dvgImg];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
+    if (shopImages.length === 0) return;
+    
     const timer = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % shopImages.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, [shopImages.length]);
+  }, []);
 
   return (
     <div className="bg-white min-h-screen">
@@ -22,7 +25,7 @@ const AboutUs = () => {
         <p className="text-lg text-indigo-200 max-w-2xl mx-auto font-medium">Crafting comfort and elegance for your home since 2021.</p>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-16 space-y-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
         {/* Mission */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
@@ -48,25 +51,29 @@ const AboutUs = () => {
           </div>
 
           {/* Animated Image Slider */}
-          <div className="relative rounded-[3rem] overflow-hidden shadow-2xl h-[500px] group border-4 border-white shadow-indigo-100/50">
+          <div className="relative rounded-[3rem] overflow-hidden shadow-2xl h-[500px] group border-4 border-white shadow-indigo-100/50 bg-gray-100">
             {shopImages.map((img, idx) => (
               <div
                 key={idx}
                 className={`absolute inset-0 transition-all duration-1000 ease-in-out transform ${
-                  idx === currentImageIndex ? 'opacity-100 scale-100 translate-x-0' : 'opacity-0 scale-110 translate-x-4'
+                  idx === currentImageIndex ? 'opacity-100 scale-100 translate-x-0 z-10' : 'opacity-0 scale-110 translate-x-4 z-0'
                 }`}
               >
                 <img 
                   src={img} 
                   className="w-full h-full object-cover" 
                   alt={`Sri Durga Showroom ${idx + 1}`}
+                  onError={(e) => {
+                    console.error("Failed to load image:", img);
+                    e.target.src = 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=1000'; // Fallback
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>
             ))}
 
             {/* Navigation Dots */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
               {shopImages.map((_, idx) => (
                 <button
                   key={idx}
@@ -79,7 +86,7 @@ const AboutUs = () => {
             </div>
 
             {/* Floating Badge */}
-            <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl z-10 border border-white/20">
+            <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl z-20 border border-white/20">
               <p className="text-[10px] font-black text-indigo-600 uppercase tracking-widest leading-none">Our Showroom</p>
             </div>
           </div>

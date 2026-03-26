@@ -10,8 +10,8 @@ const ContactUs = () => {
         <p className="text-lg text-indigo-200 max-w-2xl mx-auto font-medium">Visit our showrooms or reach out to us directly.</p>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           
           {/* Karkala Shop Details */}
           <div className="bg-gray-50 rounded-[3rem] p-10 lg:p-14 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 group">

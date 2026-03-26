@@ -29,24 +29,21 @@ function Navigation() {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm">
+      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-lg shadow-gray-200/20 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex justify-between items-center">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-4 group">
-              <div className="bg-indigo-600 p-3 rounded-2xl text-white group-hover:rotate-12 transition-all duration-500 shadow-xl shadow-indigo-100 group-hover:bg-indigo-700">
-                <LayoutGrid size={32} strokeWidth={2.5} />
+            <Link to="/" className="flex items-center gap-5 group">
+              <div className="bg-indigo-600 p-2.5 rounded-2xl text-white group-hover:rotate-12 transition-all duration-500 shadow-xl shadow-indigo-100 group-hover:bg-indigo-700">
+                <LayoutGrid size={28} strokeWidth={2.5} />
               </div>
-              <div className="flex flex-col">
-                <div className="flex items-baseline leading-none">
-                  <span className="text-3xl font-[1000] text-gray-900 tracking-tighter uppercase">SRI</span>
-                  <span className="text-3xl font-[1000] text-indigo-600 tracking-tighter uppercase ml-1.5">DURGA</span>
-                </div>
-                <div className="mt-1.5">
-                  <span className="text-base font-black text-indigo-600 tracking-[0.05em] uppercase whitespace-nowrap leading-none">
-                    Electronics & Furnitures
-                  </span>
-                </div>
+              <div className="flex flex-col gap-1.5 leading-none">
+                <span className="text-2xl lg:text-3xl font-[1000] text-gray-900 tracking-tighter uppercase whitespace-nowrap">
+                  SRI <span className="text-indigo-600">DURGA</span>
+                </span>
+                <span className="text-sm lg:text-base font-black text-indigo-600 tracking-widest uppercase whitespace-nowrap opacity-90">
+                  Electronics & Furnitures
+                </span>
               </div>
             </Link>
 

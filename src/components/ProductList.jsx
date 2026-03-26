@@ -85,7 +85,7 @@ const ProductList = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-white w-full">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600/30 backdrop-blur-md rounded-full text-[11px] font-black mb-8 border border-indigo-400/40 text-indigo-200 uppercase tracking-[0.2em] shadow-lg">
               <Sparkles size={16} /> LUXURY FURNITURE COLLECTION
@@ -110,7 +110,7 @@ const ProductList = () => {
       </div>
 
       {/* Attractive Category Grid Section */}
-      <div id="category-section" ref={categoriesRef} className="container mx-auto px-6 py-16">
+      <div id="category-section" ref={categoriesRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="flex flex-col items-center text-center mb-12">
           <h2 className="text-xs font-black text-indigo-600 uppercase tracking-[0.4em] mb-3">Our Departments</h2>
           <h3 className="text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">SHOP BY CATEGORY</h3>
