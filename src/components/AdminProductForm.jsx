@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../utils/supabaseClient';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Upload, X, Plus, Save, Loader2, ArrowLeft } from 'lucide-react';
+import { Upload, X, Plus, Save, Loader2, ArrowLeft, Edit2 } from 'lucide-react';
 
 const AdminProductForm = () => {
   const { productId } = useParams();
