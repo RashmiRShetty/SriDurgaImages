@@ -1,16 +1,53 @@
-# React + Vite
+# Sri Durga Images - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend application for Sri Durga Electronics & Furnitures, built with React and Vite.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Advanced Filtering & Discovery**: 
+  - Dual-level navigation (Categories and Subcategories).
+  - Price-range filtering and multi-criteria sorting.
+- **Product Sharing**: Built-in support for the Web Share API and clipboard fallbacks.
+- **Unique IDs**: Automatically generated formatted IDs (e.g., KITCH-A1B2) for every product.
+- **Premium Image Viewer**: High-resolution modal with interactive zoom, drag-to-pan, and multi-image support.
+- **Admin Suite**: Secure, password-protected tools for comprehensive product and category management.
+- **Global Search**: Real-time search functionality across the entire inventory.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework**: React 19
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **Database**: Supabase
+- **Icons**: Lucide React
+- **Animations**: Framer Motion
 
-## Expanding the ESLint configuration
+## 🚀 Scripts
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `npm run dev`: Starts the development server.
+- `npm run build`: Builds the application for production.
+- `npm run lint`: Runs ESLint to check for code quality issues.
+- `npm run preview`: Previews the production build locally.
+
+## 📂 Folder Structure
+
+- `src/components/`: Contains all React components, organized by feature (Admin, Product, etc.).
+- `src/utils/`: Utility files, including the Supabase client configuration.
+- `src/assets/`: Static images and SVG icons.
+- `public/`: Public assets like favicon and manifest files.
+
+## 🔧 Configuration
+
+### Environment Variables
+Ensure you have a `.env` file in this directory:
+```env
+VITE_SUPABASE_URL=...
+VITE_SUPABASE_ANON_KEY=...
+```
+
+### Database
+The database schema is defined in [supabase_schema.sql](supabase_schema.sql). Use this to set up your Supabase tables and RLS policies.
+
+## 🌐 Deployment
+
+The project is configured for deployment on Vercel (see `vercel.json`) and includes a `_redirects` file for SPAs in the `public` folder.
