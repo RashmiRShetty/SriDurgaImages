@@ -1,58 +1,71 @@
-# Sri Durga Images - Frontend
+# 🛍️ Sri Durga Electronics & Furnitures - Frontend
 
-This is the frontend application for Sri Durga Electronics & Furnitures, built with React and Vite. This project is highly helpful for users to view and select products, featuring an integrated share option and unique product IDs for easy identification.
+![React](https://img.shields.io/badge/React-19-blue)
+![Vite](https://img.shields.io/badge/Vite-Fast-yellow)
+![Tailwind](https://img.shields.io/badge/Tailwind-CSS-38B2AC)
+![Supabase](https://img.shields.io/badge/Backend-Supabase-green)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
-### 🌟 Why This Project is Helpful
-- **Product Viewing & Selection**: Users can effortlessly browse through premium furniture collections with high-quality images and detailed descriptions, making the selection process smooth and enjoyable.
-- **Unique Product IDs**: Every item is assigned a unique, professionally formatted ID (e.g., `LIV-A1B2`). This helps users accurately reference products when inquiring or placing orders.
-- **Easy Sharing**: Found something you like? The built-in share feature allows you to instantly send product links to friends or family using the native Web Share API or by copying to your clipboard.
+A modern frontend application built using **React + Vite** for Sri Durga Electronics & Furnitures.  
+It enables users to explore, filter, and share furniture products with a smooth and interactive experience.
+
+---
+
+## 🌟 Why This Project Stands Out
+
+- 🛒 **Smart Product Browsing**  
+  Easily explore premium furniture collections with high-quality visuals.
+
+- 🆔 **Unique Product Identification**  
+  Each product has a structured ID (e.g., `LIV-A1B2`) for easy reference.
+
+- 🔗 **Instant Sharing**  
+  Share products via native sharing or copy link functionality.
+
+---
 
 ## 🚀 Features
 
-- **Advanced Filtering & Discovery**: 
-  - Dual-level navigation (Categories and Subcategories).
-  - Price-range filtering and multi-criteria sorting.
-- **Product Sharing**: Built-in support for the Web Share API and clipboard fallbacks.
-- **Unique IDs**: Automatically generated formatted IDs (e.g., KITCH-A1B2) for every product.
-- **Premium Image Viewer**: High-resolution modal with interactive zoom, drag-to-pan, and multi-image support.
-- **Admin Suite**: Secure, password-protected tools for comprehensive product and category management.
-- **Global Search**: Real-time search functionality across the entire inventory.
+### 🔍 Advanced Discovery
+- Category & Subcategory navigation  
+- Price filtering  
+- Multi-level sorting  
+
+### 🖼️ Premium Product Experience
+- High-resolution image viewer  
+- Zoom & drag functionality  
+- Multiple image support  
+
+### 📤 Smart Sharing
+- Web Share API integration  
+- Clipboard fallback support  
+
+### 🔐 Admin Panel
+- Secure product management  
+- Category control system  
+
+### 🔎 Global Search
+- Real-time product search across inventory  
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Framework**: React 19
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS
-- **Database**: Supabase
-- **Icons**: Lucide React
-- **Animations**: Framer Motion
+| Technology | Usage |
+|-----------|------|
+| React 19 | Frontend Framework |
+| Vite | Fast Build Tool |
+| Tailwind CSS | Styling |
+| Supabase | Backend & Database |
+| Lucide React | Icons |
+| Framer Motion | Animations |
 
-## 🚀 Scripts
+---
 
-- `npm run dev`: Starts the development server.
-- `npm run build`: Builds the application for production.
-- `npm run lint`: Runs ESLint to check for code quality issues.
-- `npm run preview`: Previews the production build locally.
+## ⚙️ Scripts
 
-## 📂 Folder Structure
-
-- `src/components/`: Contains all React components, organized by feature (Admin, Product, etc.).
-- `src/utils/`: Utility files, including the Supabase client configuration.
-- `src/assets/`: Static images and SVG icons.
-- `public/`: Public assets like favicon and manifest files.
-
-## 🔧 Configuration
-
-### Environment Variables
-Ensure you have a `.env` file in this directory:
-```env
-VITE_SUPABASE_URL=...
-VITE_SUPABASE_ANON_KEY=...
-```
-
-### Database
-The database schema is defined in [supabase_schema.sql](supabase_schema.sql). Use this to set up your Supabase tables and RLS policies.
-
-## 🌐 Deployment
-
-The project is configured for deployment on Vercel (see `vercel.json`) and includes a `_redirects` file for SPAs in the `public` folder.
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run preview  # Preview production build
+npm run lint     # Check code quality
